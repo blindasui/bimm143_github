@@ -1,4 +1,5 @@
 # BIMM143
+
 Classwork for [BIMM143 at UC San Diego](https://bioboot.github.io/bimm143_F25/) during Fall 2025.
 
 - Class 04 [R fundamentals](Lab04/Lab04_R_Script_to_PDF_report.pdf)
