@@ -1,0 +1,82 @@
+---
+title: "Lab 17 Genome informatics (Galaxy)"
+author: 'Blinda Sui (PID: A17117043)'
+date: "2025-12-01"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Section 1. Proportion of G/G in a population
+
+Downloaded a CSV file from Ensemble < https://useast.ensembl.org/Homo_sapiens/Variation/Sample?db=core;r=17:39550097-40240098;v=rs8067378;vdb=variation;vf=959672880#373531_tablePanel >
+
+Here we read this CSV file
+
+```{r}
+mxl <- read.csv("373531-SampleGenotypes-Homo_sapiens_Variation_Sample_rs8067378.csv")
+head(mxl)
+```
+
+```{r}
+table(mxl$Genotype..forward.strand.)
+```
+
+```{r}
+table(mxl$Genotype..forward.strand.)/nrow(mxl)*100
+```
+
+Now let's look at a different population. I picked the GBR.
+
+```{r}
+gbr <- read.csv("373522-SampleGenotypes-Homo_sapiens_Variation_Sample_rs8067378.csv")
+```
+
+Find proportion of G/G
+
+```{r}
+round(table(gbr$Genotype..forward.strand.)/nrow(gbr)*100, 2)
+```
+
+This variant that is associated with childhoold asthma is more frequent in the GBR population than the MKL population.
+
+Let's now dig into this further.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
