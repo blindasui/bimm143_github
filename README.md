@@ -27,7 +27,7 @@ Classwork for [BIMM143 at UC San Diego](https://bioboot.github.io/bimm143_F25/) 
 
 - Class 16 [Essential UNIX for bioinformatics](Lab16/Lab16_UnixGraph.md)
 
-- Class 17 [Genome informatics and high throughput sequencing]()
+- Class 17 [Genome informatics and high throughput sequencing](Lab17/Lab17_Galaxy.pdf)
 
 - Class 18 Thanksgiving Holiday
 
