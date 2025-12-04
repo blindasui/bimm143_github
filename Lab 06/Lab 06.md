@@ -46,7 +46,7 @@ The ‘sample()’ function could be useful here.
 sample(1:10, size = 3)
 ```
 
-    [1] 9 4 3
+    [1] 8 5 4
 
 change this to work with the nucleotides A C G and T and return 3 or
 them.
@@ -56,7 +56,7 @@ n <- c("A", "C", "G", "T")
 sample(n, size = 15, replace = TRUE)
 ```
 
-     [1] "A" "C" "T" "A" "G" "A" "G" "C" "T" "C" "A" "C" "G" "T" "G"
+     [1] "C" "G" "A" "A" "G" "C" "G" "A" "G" "T" "T" "G" "G" "A" "G"
 
 Turn this snipet into a function that returns a user specified length
 dna sequence. Let’s call it ‘generate_dna()’
@@ -85,7 +85,7 @@ generate_dna(5)
 
     Well done you!
 
-    [1] "C" "T" "G" "C" "A"
+    [1] "T" "A" "C" "A" "C"
 
 ``` r
 s <- generate_dna(15)
@@ -97,7 +97,7 @@ s <- generate_dna(15)
 s
 ```
 
-     [1] "G" "G" "T" "A" "G" "C" "C" "A" "A" "T" "T" "A" "G" "G" "G"
+     [1] "G" "A" "T" "G" "T" "T" "C" "T" "T" "T" "T" "G" "G" "C" "C"
 
 I want the option to return a single element character vector with my
 sequence all together like this: “GGAGTAC”
@@ -106,13 +106,13 @@ sequence all together like this: “GGAGTAC”
 s
 ```
 
-     [1] "G" "G" "T" "A" "G" "C" "C" "A" "A" "T" "T" "A" "G" "G" "G"
+     [1] "G" "A" "T" "G" "T" "T" "C" "T" "T" "T" "T" "G" "G" "C" "C"
 
 ``` r
 paste(s, collapse = "")
 ```
 
-    [1] "GGTAGCCAATTAGGG"
+    [1] "GATGTTCTTTTGGCC"
 
 ``` r
 generate_dna(10, fasta=TRUE)
@@ -120,7 +120,7 @@ generate_dna(10, fasta=TRUE)
 
     Well done you!
 
-    [1] "CAGTGATGCG"
+    [1] "GCACACAGTT"
 
 ``` r
 generate_dna(10, fasta=FALSE)
@@ -128,7 +128,7 @@ generate_dna(10, fasta=FALSE)
 
     Well done you!
 
-     [1] "G" "T" "A" "A" "C" "T" "T" "G" "G" "C"
+     [1] "C" "A" "T" "G" "T" "A" "C" "C" "G" "G"
 
 ## A more advanced example
 
@@ -155,7 +155,7 @@ Try this out…
 generate_protein(10)
 ```
 
-    [1] "NDNDSSCPVD"
+    [1] "LEKLPYSNAN"
 
 > Q. Generate random protein sequences between lengths 5 and 12
 > amino-acids.
@@ -164,13 +164,13 @@ generate_protein(10)
 generate_protein(5)
 ```
 
-    [1] "IWNLF"
+    [1] "MMKHM"
 
 ``` r
 generate_protein(6)
 ```
 
-    [1] "QRMQKN"
+    [1] "QFRHCS"
 
 One approach is to do this by brute force calling our unction for each
 lenght 5 to 12.
@@ -191,26 +191,26 @@ for(i in seq_lengths) {
 ```
 
     > 6 
-    IGSDEC
+    VTQWIQ
     > 7 
-    LGNPECD
+    ERKQLNP
     > 8 
-    GPWCHLSF
+    YCHTHPAH
     > 9 
-    PQGPDETHA
+    MNDNCCYII
     > 10 
-    YRDWSKLKHD
+    FFKPKKLIDT
     > 11 
-    DCMYRPVAMKV
+    PAHATCDQDRG
     > 12 
-    VCMYRMDQFMEN
+    DTEMWSEHKFCH
 
 ``` r
 sapply(6:12, generate_protein)
 ```
 
-    [1] "AFYHVK"       "NCILCYV"      "EPWTWGYW"     "WVEGLDCRH"    "HMEWLNAMLL"  
-    [6] "YKTCSAHMNQV"  "LPYARVCTSDQD"
+    [1] "NHCCIW"       "NLNAPLK"      "YAQSFLLN"     "NIHMMARLK"    "TAYHAKGLQN"  
+    [6] "VPDVAMRKSPD"  "PIMECIRSGRSP"
 
 > **Key-Point**: Writing functions in R is doable but not the easiest
 > thing. Starting with a working snippet of code and then using LLM
