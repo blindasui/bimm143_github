@@ -1,0 +1,5 @@
+"0","# Alternative using boxplot statistics"
+"0","bp <- boxplot(exp ~ geno, data = expr,"
+"0","              xlab = ""Genotype at rs8067378"","
+"0","              ylab = ""ORMDL3 expression (normalized)"","
+"0","              main = ""ORMDL3 expression by rs8067378 genotype"")"

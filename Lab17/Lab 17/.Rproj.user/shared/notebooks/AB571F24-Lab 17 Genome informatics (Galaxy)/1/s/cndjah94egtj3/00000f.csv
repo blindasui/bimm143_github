@@ -1,0 +1,2 @@
+"0","mxl <- read.csv(""373531-SampleGenotypes-Homo_sapiens_Variation_Sample_rs8067378.csv"")"
+"0","head(mxl)"
