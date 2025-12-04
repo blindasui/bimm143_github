@@ -1,0 +1,6 @@
+"0","library(jsonlite)"
+"0",""
+"0","subject <- read_json(path = ""https://www.cmi-pb.org/api/v5_1/subject"", "
+"0","                     simplifyVector = TRUE)"
+"0",""
+"0","head(subject)"

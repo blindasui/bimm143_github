@@ -1,0 +1,6 @@
+"0","filter(igg, antigen==""PT"") %>%"
+"0","  ggplot() +"
+"0","  aes(MFI_normalised, col=infancy_vac) +"
+"0","  geom_boxplot(show.legend = FALSE) +"
+"0","  facet_wrap(vars(visit)) +"
+"0","  theme_bw()"

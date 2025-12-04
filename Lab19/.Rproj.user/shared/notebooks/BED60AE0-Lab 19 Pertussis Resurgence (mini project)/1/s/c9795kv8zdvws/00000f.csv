@@ -1,0 +1,6 @@
+"0","library(ggplot2)"
+"0",""
+"0","ggplot(cdc) +"
+"0","  aes(year, cases) +"
+"0","  geom_point() +"
+"0","  geom_line() "
