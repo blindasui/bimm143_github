@@ -1,0 +1,5 @@
+"0","k1 <- kmeans(x, centers = 1)"
+"0","k2 <- kmeans(x, centers = 2)"
+"0","k3 <- kmeans(x, centers = 3)"
+"0","k4 <- kmeans(x, centers = 4)"
+"0","k5 <- kmeans(x, centers = 5)"

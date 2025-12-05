@@ -1,0 +1,8 @@
+"0","library(ggrepel)"
+"0",""
+"0","ggplot(candy) +"
+"0","  aes(x = winpercent,"
+"0","       y = pricepercent,"
+"0","      label = rownames(candy)) +"
+"0","  geom_point(col=my_cols) +"
+"0","  geom_text_repel(max.overlaps = 7)"

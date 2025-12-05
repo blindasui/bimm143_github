@@ -1,0 +1,2 @@
+"0","meancounts$log2fc <- log2(meancounts$treated.means/"
+"0","   meancounts$control.means)"

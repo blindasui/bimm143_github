@@ -1,0 +1,236 @@
+---
+title: "Lab 12 DESeq Lab"
+author: "Blinda Sui (PID: A17117043)"
+format: pdf
+toc: true
+---
+
+## Background
+Today we will analyze some RNASeq data from Himes et al.on the effects of a common steroid (dexamethasone) on airway smooth muscle cells (ASM cells)
+
+Are starting point is the "counts" data and "metadata" that contain the count values for each gene in their different experiments (i.e. cell lines with or without the drug)
+
+## Data import
+
+```{r}
+#Complete the missing code
+counts <- read.csv("airway_scaledcounts.csv", row.names=1)
+metadata <- read.csv("airway_metadata.csv")
+```
+
+```{r}
+head(counts)
+```
+
+> Q1. How many genes are in this dataset?
+
+```{r}
+nrow(counts)
+```
+
+> Q. How many different experiments (columns in counts or rows in metadata) are there?
+
+```{r}
+nrow(metadata)
+```
+
+> Q2. How many ‘control’ cell lines do we have?
+
+```{r}
+sum(metadata$dex == "control")
+```
+
+
+## Toy differential gene expression
+
+To start our analysis let's calculate the mean counts for all genes in the "control" experiments.
+
+1. Extract all "control" columns from the `counts` object.
+2. Calculate the mean for all rows (i.e. gnes) of these "control" columns.
+3-4. Do the same for "treated".
+5. Compare these  `control.mean` and `treated.mean` values.
+
+```{r}
+#1
+control.inds <- metadata$dex == "control"
+control.counts <- counts[,control.inds]
+```
+
+> Q3. How would you make the above code in either approach more robust? Is there a function that could help here? 
+
+rowMean()
+
+> Q4. Follow the same procedure for the treated samples (i.e. calculate the mean per gene across drug treated samples and assign to a labeled vector called treated.mean)
+
+```{r}
+#2
+control.means <- rowMeans(control.counts)
+control.means
+
+#3-4
+treated.means <- rowMeans(counts[, metadata$dex == "treated"])
+treated.means
+```
+
+Store these together for case of bookkeeping as `meancounts`
+
+```{r}
+#5
+meancounts <- data.frame(control.means, treated.means)
+head(meancounts)
+```
+
+Make a plot of control vs treated mean values ofr all genes
+
+> Q5 (a). Create a scatter plot showing the mean of the treated samples against the mean of the control samples. Your plot should look something like the following.
+
+```{r}
+plot(meancounts)
+```
+
+```{r}
+plot(meancounts, log="xy")
+```
+> Q5 (b).You could also use the ggplot2 package to make this figure producing the plot below. What geom_?() function would you use for this plot?
+
+```{r}
+library(tidyverse)
+
+ggplot(meancounts, aes(x = control.means, y = treated.means)) +
+  geom_point()
+```
+
+> Q6. Try plotting both axes on a log scale. What is the argument to plot() that allows you to do this?
+
+```{r}
+plot(control.means, treated.means, log = "xy")
+```
+
+> Q7. What is the purpose of the arr.ind argument in the which() function call above? Why would we then take the first column of the output and need to call the unique() function?
+
+The arr.ind=TRUE argument will clause which() to return both the row and column indices (i.e. positions) where there are TRUE values. In this case this will tell us which genes (rows) and samples (columns) have zero counts. We are going to ignore any genes that have zero counts in any sample so we just focus on the row answer. Calling unique() will ensure we don’t count any row twice if it has zero entries in both samples. 
+
+We often talk metrics like "log2 fold-change"
+
+```{r}
+# treated/control
+log2(10/10)
+```
+
+```{r}
+log2(10/20)
+log2(20/10)
+```
+
+```{r}
+log2(40/10)
+log2(10/40)
+```
+
+Let's calculate the log2 fold change for our treated over control mean counts.
+
+```{r}
+meancounts$log2fc <- log2(meancounts$treated.means/
+   meancounts$control.means)
+```
+
+```{r}
+head(meancounts)
+```
+
+A common "rule of thumb" is a log2 fold change cutoff +2 and -2 to call genes "Up regulated" or "Down regulated".
+
+```{r}
+sum(meancounts$log2fc >= +2, na.rm=T)
+#When na.rm is set to TRUE, the function will remove or ignore any NA values present in the input data before performing the calculation. If na.rm is set to FALSE (which is often the default), and there are NA values in the data, the function will typically return NA as the result, as it cannot compute a meaningful value when missing data is present.
+```
+
+Number of "down" genes at -2 threshold
+
+```{r}
+sum(meancounts$log2fc <= -2, na.rm=T)
+```
+
+> Q8. Using the up.ind vector above can you determine how many up regulated genes we have at the greater than 2 fc level?
+
+> Q9. Using the down.ind vector above can you determine how many down regulated genes we have at the greater than 2 fc level?
+
+```{r}
+up.ind <- meancounts$log2fc > 2
+down.ind <- meancounts$log2fc < (-2)
+sum(up.ind, na.rm=T)
+sum(down.ind, na.rm=T)
+```
+
+> Q10. Do you trust these results? Why or why not?
+
+This fold change is not enough to determin the significance, so I do not trust thesed results.
+
+## DESeq2 analysis
+
+Let's do this analysis properly and keep our inner stats nerd happy - i.e. are the differences we see between drug and no drug significant given the replicate experiments.
+
+```{r, message=FALSE}
+library(DESeq2)
+```
+
+For DESeq analysis we need three things
+
+- count values (`contdata`)
+- metadata telling us about the columns in `countData` (`colData`)
+- design of the experiment (i.e. what do you want to compare)
+
+Our first function form DESeq2 will setup the input required for analysis by storing all these 3 things together.
+
+```{r}
+dds <- DESeqDataSetFromMatrix(countData = counts,
+                              colData = metadata,
+                              design = ~dex)
+```
+
+The main function in DESeq2 that runs the analysis is called `DESeq()`
+
+```{r}
+dds <- DESeq(dds)
+```
+
+```{r}
+res <- results(dds)
+head(res)
+```
+
+```{r}
+36000 * 0.05
+```
+
+
+## Volcano Plot
+
+This is a common summary result figure from these types of experiments and plot the log2 fold-change vs the adjusted p-value
+
+```{r}
+plot(res$log2FoldChange, -log(res$padj))
+abline(v=c(-2,2), col="red")
+abline(h=-log(0.04), col="red")
+#abline() function in R is used to add one or more straight lines to an existing plot. It is a powerful tool for enhancing data visualization by highlighting trends, relationships, or specific reference points within your data. 
+```
+
+## Save our results
+
+```{r}
+write.csv(res, file="my_results.csv")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+

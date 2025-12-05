@@ -1,0 +1,4 @@
+"0","# Basic biplot of the PCA you already computed"
+"0","biplot(wisc.pr, scale = 0, cex = 0.5, col = c(""grey50"",""tomato""),"
+"0","       xlab = ""PC1"", ylab = ""PC2"","
+"0","       main = ""Biplot: Wisconsin Cancer PCA (PC1 vs PC2)"")"

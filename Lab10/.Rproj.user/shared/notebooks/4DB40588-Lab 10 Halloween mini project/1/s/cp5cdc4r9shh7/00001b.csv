@@ -1,0 +1,4 @@
+"0","ggplot(candy) +"
+"0","  aes(x = winpercent, "
+"0","      y = reorder(rownames(candy), winpercent)) +"
+"0","  geom_col(fill=my_cols)"

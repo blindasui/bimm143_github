@@ -1,0 +1,1 @@
+"0","barplot(as.matrix(x), beside=F, col=rainbow(nrow(x)))"

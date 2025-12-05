@@ -1,0 +1,5 @@
+"0","library(ggplot2)"
+"0",""
+"0","ggplot(res) +"
+"0","  aes(log2FoldChange, -log(padj)) +"
+"0","  geom_point() "

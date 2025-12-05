@@ -1,0 +1,2 @@
+"0","k4 <- kmeans(x, centers = 4)"
+"0","plot(x, col=k4$cluster)"

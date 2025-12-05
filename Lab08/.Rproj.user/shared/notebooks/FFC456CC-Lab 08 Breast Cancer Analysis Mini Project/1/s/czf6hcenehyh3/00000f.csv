@@ -1,0 +1,3 @@
+"0","## Take the first 3 PCs"
+"0","dist.pc <- dist(wisc.pr$x[, 1:3])"
+"0","wisc.pr.hclust <- hclust(dist.pc, method = ""ward.D2"")"

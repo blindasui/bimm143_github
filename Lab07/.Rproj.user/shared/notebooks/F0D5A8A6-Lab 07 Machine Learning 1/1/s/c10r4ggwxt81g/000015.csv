@@ -1,0 +1,3 @@
+"0","ggplot(pca$x) +"
+"0","  aes(PC1, PC2) +"
+"0","  geom_point(col=cols)"

@@ -1,0 +1,4 @@
+"0","p + scale_colour_manual(values=c(""yellow"",""pink"",""purple"")) +"
+"0","    labs(title=""Gene Expresion Changes Upon Drug Treatment"","
+"0","         x=""Control (no drug) "","
+"0","         y=""Drug Treatment"")"

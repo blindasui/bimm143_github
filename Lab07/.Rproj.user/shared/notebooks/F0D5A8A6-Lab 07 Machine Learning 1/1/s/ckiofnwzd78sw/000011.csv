@@ -1,0 +1,6 @@
+"0","n <- NULL"
+"0","for(i in 1:5) {"
+"0","  n <- c(n, kmeans(x, centers = i)$tot.withinss)"
+"0","}"
+"0",""
+"0","plot(n, typ = ""b"")"

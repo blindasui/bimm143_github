@@ -1,0 +1,8 @@
+"0","fruit.ind <- candy$fruity==1"
+"0","fruit.win <- candy[fruit.ind,]$winpercent"
+"0","fruit.mean <- mean(fruit.win)"
+"0","fruit.mean"
+"1","[1]"
+"1"," 44.11974"
+"1","
+"

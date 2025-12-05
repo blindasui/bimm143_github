@@ -1,0 +1,4 @@
+"0","ggplot(pca$x) +"
+"0","  aes(PC1, PC2, label = rownames(pca$x)) +"
+"0","  geom_point(col=my_cols) +"
+"0","  geom_text_repel(col = my_cols)"

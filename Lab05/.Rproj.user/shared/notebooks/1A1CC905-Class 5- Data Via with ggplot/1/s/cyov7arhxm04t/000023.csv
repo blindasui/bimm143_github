@@ -1,0 +1,8 @@
+"0","ggplot(cars) +"
+"0","  aes(x=speed, y=dist) +"
+"0","  geom_point() +"
+"0","  geom_smooth(method=""lm"",se=FALSE) +"
+"0","  labs(title=""Silly plot of Speed vs Stoping distance"","
+"0","       x=""speed (MPH)"","
+"0","       y=""distance (ft)"" ) +"
+"0","  theme_bw()"

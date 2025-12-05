@@ -1,0 +1,7 @@
+"0","# Q5: # of PCs for at least 70% variance"
+"0","Q5_n70 <- which(cum_var >= 0.70)[1]"
+"0","Q5_n70"
+"1","[1]"
+"1"," 3"
+"1","
+"

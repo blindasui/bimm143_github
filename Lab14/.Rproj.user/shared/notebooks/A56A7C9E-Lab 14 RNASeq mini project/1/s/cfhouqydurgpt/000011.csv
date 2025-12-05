@@ -1,0 +1,2 @@
+"0","counts <- read.csv(""GSE37704_featurecounts.csv"", row.names = 1)"
+"0","metadata <- read.csv(""GSE37704_metadata.csv"")"

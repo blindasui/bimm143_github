@@ -1,0 +1,8 @@
+"0","aln_file <- list.files(path=results_dir,"
+"0","                       pattern="".a3m$"","
+"0","                        full.names = TRUE)"
+"0","aln_file"
+"1","[1]"
+"1"," ""HIPPR_dimer_23119//HIPPR_dimer_23119.a3m"""
+"1","
+"

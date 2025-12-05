@@ -1,0 +1,4 @@
+"0","ggplot(gapminder) +"
+"0","  aes(gdpPercap, lifeExp, col=continent, label=country) +"
+"0","  geom_point() +"
+"0","  facet_wrap(~continent)"

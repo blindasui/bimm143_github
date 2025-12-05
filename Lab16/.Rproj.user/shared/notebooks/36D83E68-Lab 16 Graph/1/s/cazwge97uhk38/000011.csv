@@ -1,0 +1,4 @@
+"0","b <- read.table(""my_results.tsv"", header = FALSE)"
+"0",""
+"0",""
+"0","colnames(b) <- c(""qseqid"", ""sseqid"", ""pident"", ""length"", ""mismatch"", ""gapopen"", ""qstart"", ""qend"", ""sstart"", ""send"", ""evalue"", ""bitscore"")"

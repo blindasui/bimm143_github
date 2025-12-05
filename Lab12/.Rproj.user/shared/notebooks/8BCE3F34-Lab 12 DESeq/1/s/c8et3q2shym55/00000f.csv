@@ -1,0 +1,6 @@
+"0","sum(meancounts$log2fc >= +2, na.rm=T)"
+"1","[1]"
+"1"," 1910"
+"1","
+"
+"0","#When na.rm is set to TRUE, the function will remove or ignore any NA values present in the input data before performing the calculation. If na.rm is set to FALSE (which is often the default), and there are NA values in the data, the function will typically return NA as the result, as it cannot compute a meaningful value when missing data is present."

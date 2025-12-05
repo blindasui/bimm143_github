@@ -1,0 +1,7 @@
+"0","z <- c(k1$tot.withinss, "
+"0","       k2$tot.withinss,"
+"0","       k3$tot.withinss,"
+"0","       k4$tot.withinss,"
+"0","       k5$tot.withinss)"
+"0",""
+"0","plot(z, typ = ""b"")"

@@ -1,0 +1,8 @@
+"0","#colnames(wisc.data)"
+"0","length(grep(""_mean"", colnames(wisc.data)))"
+"1","[1]"
+"1"," 10"
+"1","
+"
+"0","#grep(): searches for matches to a specified pattern within each element of a character vector x."
+"0","#length(): how many"

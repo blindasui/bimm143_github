@@ -1,0 +1,36 @@
+"0","library(bio3d)"
+"0",""
+"0","m1 <- read.pdb(pdb_files[1])"
+"0","m1"
+"1","
+ Call:  "
+"1",""
+"1","read.pdb(file = pdb_files[1])"
+"1",""
+"1","
+"
+"1","
+   Total Models#: 1
+     Total Atoms#: 1514,  XYZs#: 4542  Chains#: 2  (values: A B)
+
+     Protein Atoms#: 1514  (residues/Calpha atoms#: 198)
+     Nucleic acid Atoms#: 0  (residues/phosphate atoms#: 0)
+
+     Non-protein/nucleic Atoms#: 0  (residues: 0)
+     Non-protein/nucleic resid values: [ none ]
+
+"
+"1","   Protein sequence:
+"
+"1",""
+"1","      PQITLWQRPLVTIKIGGQLKEALLDTGADDTVLEEMSLPGRWKPKMIGGIGGFIKVRQYD
+      QILIEICGHKAIGTVLVGPTPVNIIGRNLLTQIGCTLNFPQITLWQRPLVTIKIGGQLKE
+      ALLDTGADDTVLEEMSLPGRWKPKMIGGIGGFIKVRQYDQILIEICGHKAIGTVLVGPTP
+      VNIIGRNLLTQIGCTLNF"
+"1",""
+"1","
+
+"
+"1","+ attr: atom, xyz, calpha, call"
+"1","
+"

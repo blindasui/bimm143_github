@@ -1,0 +1,3 @@
+"0","data.scaled <- scale(wisc.data)"
+"0","data.dist <- dist(data.scaled)"
+"0","wisc.hclust <- hclust(data.dist)"
